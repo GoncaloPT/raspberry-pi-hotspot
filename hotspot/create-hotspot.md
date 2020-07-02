@@ -1,4 +1,4 @@
-# Create Hotspot
+# Create Hotspot ( Linux )
 
 
 ## Using visual network manager
@@ -9,7 +9,5 @@ If this method is used, a file with the hotspot name is created in /etc/NetworkM
 A file can be created in /etc/NetworkManager/system-connections/ with the hotspot configuration.
 An usable find can be found in this folder
 
-
-
 # Edit Hotspot
-To edit hotspot the following procedure can be used
+Edit the hotspot is done by editing the hotspot file in /etc/NetworkManager/systems-connections folder
