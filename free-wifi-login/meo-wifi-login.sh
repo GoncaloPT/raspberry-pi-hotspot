@@ -12,4 +12,4 @@
 
 
 # uses only inside ( ) response [ which is the json ]. Inside json it uses jq to find the result field only
-curl -s 'https://servicoswifi.apps.meo.pt/HotspotConnection.asmx/Login?callback=jQuery341027213196722548627_1594222009900&username=samuelgoncalo%40hotmail.com&password=ndkv2bX0vPD%2Fg6tcutnhwQ%3D%3D&navigatorLang=pt&_=1594222009902' | grep -oP '(?<=\().*(?=\))' | jq .result
+curl 'https://servicoswifi.apps.meo.pt/HotspotConnection.asmx/Login?callback=jQuery3410729614172116924_1594228224850&username=samuelgoncalo%40hotmail.com&password=2co7jgLbiHVKguu1eZefgQ%3D%3D&navigatorLang=en&_=1594228224852' | grep -oP '(?<=\().*(?=\))' | jq .result
