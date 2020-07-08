@@ -4,34 +4,35 @@
 
 ### Login
 Login is done in a login page. 
-Emulating the request should be enough to negociate authentication
+Emulating the request should be enough to negociate 
+
+### Required software
+sudo apt-get install jq -y
 
 #### CURL
 
-curl 'https://servicoswifi.apps.meo.pt/HotspotConnection.asmx/Login?callback=jQuery34109281325322302776_1592673584341&username=samuelgoncalo%40hotmail.com&password=hJcIQKYPBBANJxcDh%2BNtDg%3D%3D&navigatorLang=pt&_=1592673584344' \
-  -H 'Connection: keep-alive' \
-  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36' \
-  -H 'Accept: */*' \
-  -H 'Sec-Fetch-Site: same-site' \
-  -H 'Sec-Fetch-Mode: no-cors' \
-  -H 'Sec-Fetch-Dest: script' \
-  -H 'Referer: https://wifimeo.meo.pt/pt' \
-  -H 'Accept-Language: pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7' \
-  -H 'Cookie: ISAWPLB{023E79ED-B70B-4B30-99FB-40FF0D841DF7}={B2D7605B-4BE8-4BB4-B868-3F2F0CF54C05}' \
-  --compressed
+meo-wifi-login.sh contains the command
 
 
   #### Application
   The application will enforce the login workflow.
   WorkFlow:
-  - Try to login successfully with configured credencials in one of the provided networks
-  - Check connection status and react accordingly
-  - (v2) Check connection speed and try to find a faster network
+  - check-connectivity.sh
+    - Enables wifi adapter ( if needed )
+    - Tries to find a network named *MEO*
+    - executes *connect-to-meo-wifi.sh* if connection is not negociated yet.
+  - connect-to-meo-wifi.sh
+    - enables radio
+    - waits for 10 seconds for the networks to be listed
+    - Tries to login successfully with configured credencials in one of the provided networks by calling *meo-wifi-login.sh*
+  - (v2 - not implemented) Check connection speed and try to find a faster network
 
   #### Configuration
   - Username
   - Password ( how to deal with security ? )
   - Networks
+
+
 
 
   #### Work desk

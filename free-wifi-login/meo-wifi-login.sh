@@ -1,11 +1,15 @@
-curl 'https://servicoswifi.apps.meo.pt/HotspotConnection.asmx/Login?callback=jQuery34109281325322302776_1592673584341&username=samuelgoncalo%40hotmail.com&password=hJcIQKYPBBANJxcDh%2BNtDg%3D%3D&navigatorLang=pt&_=1592673584344' \
-  -H 'Connection: keep-alive' \
-  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36' \
-  -H 'Accept: */*' \
-  -H 'Sec-Fetch-Site: same-site' \
-  -H 'Sec-Fetch-Mode: no-cors' \
-  -H 'Sec-Fetch-Dest: script' \
-  -H 'Referer: https://wifimeo.meo.pt/pt' \
-  -H 'Accept-Language: pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7' \
-  -H 'Cookie: ISAWPLB{023E79ED-B70B-4B30-99FB-40FF0D841DF7}={B2D7605B-4BE8-4BB4-B868-3F2F0CF54C05}' \
-  --compressed
+#  curl 'https://servicoswifi.apps.meo.pt/HotspotConnection.asmx/Login?callback=jQuery341027213196722548627_1594222009900&username=samuelgoncalo%40hotmail.com&password=ndkv2bX0vPD%2Fg6tcutnhwQ%3D%3D&navigatorLang=pt&_=1594222009902' \
+#  -H 'Connection: keep-alive' \
+#  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36' \
+#  -H 'Accept: */*' \
+#  -H 'Sec-Fetch-Site: same-site' \
+#  -H 'Sec-Fetch-Mode: no-cors' \
+#  -H 'Sec-Fetch-Dest: script' \
+#  -H 'Referer: https://wifimeo.meo.pt/pt' \
+#  -H 'Accept-Language: pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7' \
+#  -H 'Cookie: ISAWPLB{023E79ED-B70B-4B30-99FB-40FF0D841DF7}={F51CCA86-567E-451C-ABC3-F8D81DE5819A}' \
+#  --compressed 
+
+
+# uses only inside ( ) response [ which is the json ]. Inside json it uses jq to find the result field only
+curl -s 'https://servicoswifi.apps.meo.pt/HotspotConnection.asmx/Login?callback=jQuery341027213196722548627_1594222009900&username=samuelgoncalo%40hotmail.com&password=ndkv2bX0vPD%2Fg6tcutnhwQ%3D%3D&navigatorLang=pt&_=1594222009902' | grep -oP '(?<=\().*(?=\))' | jq .result
